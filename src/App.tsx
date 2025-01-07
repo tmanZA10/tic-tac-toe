@@ -9,7 +9,6 @@ function App() {
       <h1>TicTacToe</h1>
       <ScoreCard />
       <Gamegrid />
-      <Reset />
     </div>
   )
 }
