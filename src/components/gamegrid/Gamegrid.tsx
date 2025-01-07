@@ -1,7 +1,24 @@
+import { useContext, useEffect } from 'react'
 import Box from '../box/Box'
 import styles from './GameGrid.module.css'
+import { gridContext } from '../../App'
+import { determineWinner } from '../../Util'
 
-function Gamegrid() {
+type propTypes = {
+  setWinner: Function
+}
+
+function Gamegrid({ setWinner } : propTypes) {
+
+  const [grid] = useContext(gridContext)
+  
+
+  useEffect(
+    () => {
+      setWinner(determineWinner(grid))
+    },
+    [grid]
+  )
   return (
     <>
       <div className={styles.grid}>

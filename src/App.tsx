@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react'
-import styles from './App.module.css'
+// import styles from './App.module.css'
 import Gamegrid from './components/gamegrid/Gamegrid'
 import Reset from './components/reset/Reset'
 import ScoreCard from './components/scorecard/ScoreCard'
@@ -25,15 +25,16 @@ function App() {
       ["", "", ""]
     ]
   )
+  const [winner, setWinner] = useState<playerType | null>(null)
 
   return (
     <playerContext.Provider value={[player, setPlayer]}>
       <gridContext.Provider value={[grid, setGrid]}>
         <div>
           <h1>TicTacToe</h1>
-          <ScoreCard />
+          <ScoreCard winner={winner} />
           <Current player={player} />
-          <Gamegrid />
+          <Gamegrid setWinner={setWinner}/>
           <Reset />
         </div>
       </gridContext.Provider>

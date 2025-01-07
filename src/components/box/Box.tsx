@@ -1,6 +1,6 @@
 import { useContext } from 'react'
-import styles from './Box.module.css'
-import { gridContext, playerContext } from '../../App'
+// import styles from './Box.module.css'
+import { gridContext, playerContext, playerType } from '../../App'
 
 type propTypes = {
   position: [number, number]
@@ -8,7 +8,7 @@ type propTypes = {
 
 function Box({ position } : propTypes) {
   const [grid, setGrid] = useContext(gridContext)
-  const [player] = useContext(playerContext)
+  const [player,setPlayer] = useContext(playerContext)
   const [x, y] = position
 
 
@@ -17,10 +17,13 @@ function Box({ position } : propTypes) {
       setGrid(
         (g:string[][]) => {
           g[x][y] = player
-          return {...g}
+          return [...g]
         }
       )
     }
+    setPlayer(
+      (p:playerType) => p === "X" ? "Y" : "X"
+    )
   }
 
   return (
