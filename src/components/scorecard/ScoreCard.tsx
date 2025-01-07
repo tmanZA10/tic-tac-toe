@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { playerType } from '../../App'
+import Reset from '../reset/Reset'
 // import styles from './ScoreCard.module.css'
 
 type propTypes = {
@@ -38,20 +39,25 @@ function ScoreCard({ winner }:propTypes) {
     [winner]
   )
 
+  const resetScore = () => setScore({x:0, y:0})
+
   return (
-    <div>
+    <>
       <div>
-        <span>X</span>
-        <span>{score.x}</span>
+        <div>
+          <span>X</span>
+          <span>{score.x}</span>
+        </div>
+        <div>
+          {message}
+        </div>
+        <div>
+          <span>Y</span>
+          <span>{score.y}</span>
+        </div>
       </div>
-      <div>
-        {message}
-      </div>
-      <div>
-        <span>Y</span>
-        <span>{score.y}</span>
-      </div>
-    </div>
+      <Reset value={"⟳"} handler={resetScore} />
+    </>
   )
 }
 

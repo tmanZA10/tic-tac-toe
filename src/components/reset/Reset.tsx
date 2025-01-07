@@ -1,8 +1,16 @@
-import styles from './Reset.moudule.css'
+// import styles from './Reset.moudule.css'
 
-function Reset() {
+type propTypes = {
+  value: string,
+  handler: Function,
+}
+
+function Reset({ value, handler, } : propTypes) {
+  
   return (
-    <button>Reset</button>
+    <button 
+      onClick={()=>handler()}
+    >{value}</button>
   )
 }
 

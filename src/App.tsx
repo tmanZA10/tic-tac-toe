@@ -27,6 +27,14 @@ function App() {
   )
   const [winner, setWinner] = useState<playerType | null>(null)
 
+  const resetGrid = () => setGrid(
+    [
+      ["", "", ""],
+      ["", "", ""],
+      ["", "", ""]
+    ]
+  )
+
   return (
     <playerContext.Provider value={[player, setPlayer]}>
       <gridContext.Provider value={[grid, setGrid]}>
@@ -35,7 +43,7 @@ function App() {
           <ScoreCard winner={winner} />
           <Current player={player} />
           <Gamegrid setWinner={setWinner}/>
-          <Reset />
+          <Reset value={"Reset Board"} handler={resetGrid} />
         </div>
       </gridContext.Provider>
     </playerContext.Provider>
