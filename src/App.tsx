@@ -3,6 +3,7 @@ import styles from './App.module.css'
 import Gamegrid from './components/gamegrid/Gamegrid'
 import Reset from './components/reset/Reset'
 import ScoreCard from './components/scorecard/ScoreCard'
+import Current from './components/current/Current'
 
 export type playerType = "X" | "Y"
 
@@ -31,6 +32,7 @@ function App() {
         <div>
           <h1>TicTacToe</h1>
           <ScoreCard />
+          <Current player={player} />
           <Gamegrid />
           <Reset />
         </div>
