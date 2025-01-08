@@ -1,0 +1,10 @@
+.resetButton{
+    background-color: var(--box-background-color);
+    color: rgb(255, 255, 255);
+    border: var(--grid-background-color) solid 2px;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    font-size: 1.8rem;
+    line-height: 1.8rem;
+    font-weight: bold;
+}

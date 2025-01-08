@@ -1,4 +1,4 @@
-// import styles from './Reset.moudule.css'
+import styles from './Reset.module.css'
 
 type propTypes = {
   value: string,
@@ -9,8 +9,7 @@ function Reset({ value, handler, } : propTypes) {
   
   return (
     <button 
-      onClick={()=>handler()}
-    >{value}</button>
+      onClick={()=>handler()} className={styles.resetButton}>{value}</button>
   )
 }
 

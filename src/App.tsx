@@ -1,11 +1,11 @@
 import { createContext, useState } from 'react'
-// import styles from './App.module.css'
+import styles from './App.module.css'
 import Gamegrid from './components/gamegrid/Gamegrid'
 import Reset from './components/reset/Reset'
 import ScoreCard from './components/scorecard/ScoreCard'
 import Current from './components/current/Current'
 
-export type playerType = "X" | "Y"
+export type playerType = "X" | "O"
 
 export const playerContext = createContext<[playerType, Function]>(
   ["X", () =>{}]
@@ -39,7 +39,7 @@ function App() {
     <playerContext.Provider value={[player, setPlayer]}>
       <gridContext.Provider value={[grid, setGrid]}>
         <div>
-          <h1>TicTacToe</h1>
+          <h1 className={styles.heading}>TicTacToe</h1>
           <ScoreCard winner={winner} />
           <Current player={player} />
           <Gamegrid setWinner={setWinner}/>

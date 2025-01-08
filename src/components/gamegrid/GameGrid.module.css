@@ -1,5 +1,8 @@
 .grid{
     display: grid;
     grid-template-columns: 8rem 8rem 8rem;
-    grid-template-rows: 8rem 8rem 8rem; 
+    grid-template-rows: 8rem 8rem 8rem;
+    background-color: var(--grid-background-color); 
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
 }

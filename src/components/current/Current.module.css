@@ -1,0 +1,12 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: .5rem 0;
+    font-size: 1.2rem;
+    color: var(--grid-background-color);
+}
+
+.current{
+    font-size: 3.6rem;
+}

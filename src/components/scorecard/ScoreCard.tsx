@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { playerType } from '../../App'
-import Reset from '../reset/Reset'
-// import styles from './ScoreCard.module.css'
+// import Reset from '../reset/Reset'
+import styles from './ScoreCard.module.css'
+import colors from '../../colors.json'
 
 type propTypes = {
   winner: playerType | null
@@ -9,7 +10,7 @@ type propTypes = {
 
 interface Score {
   x:number,
-  y:number
+  o:number
 }
 
 function ScoreCard({ winner }:propTypes) {
@@ -17,7 +18,7 @@ function ScoreCard({ winner }:propTypes) {
   const [score, setScore] = useState<Score>(
     {
       x:0,
-      y:0
+      o:0
     }
   )
 
@@ -28,7 +29,7 @@ function ScoreCard({ winner }:propTypes) {
       if(winner){
         setScore(
           (s:Score) => {
-            winner === "X" ? s.x++ : s.y++
+            winner === "X" ? s.x++ : s.o++
             return {...s}
           }
         )
@@ -39,24 +40,26 @@ function ScoreCard({ winner }:propTypes) {
     [winner]
   )
 
-  const resetScore = () => setScore({x:0, y:0})
+  // const resetScore = () => setScore({x:0, o:0})
 
   return (
     <>
-      <div>
-        <div>
-          <span>X</span>
+      <div className={styles.scoreContainer}>
+        <div className={styles.score} style={{color: colors.xColor}}>
+          <span className={styles.player}>X</span>
+          <span>-</span>
           <span>{score.x}</span>
         </div>
-        <div>
+        <div className={message}>
           {message}
         </div>
-        <div>
-          <span>Y</span>
-          <span>{score.y}</span>
+        <div className={styles.score} style={{color: colors.oColor}}>
+          <span>{score.o}</span>
+          <span>-</span>
+          <span className={styles.player}>O</span>
         </div>
       </div>
-      <Reset value={"⟳"} handler={resetScore} />
+      {/* <Reset value={"⟳"} handler={resetScore} /> */}
     </>
   )
 }

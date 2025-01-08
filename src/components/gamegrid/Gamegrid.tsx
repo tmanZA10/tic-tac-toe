@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react'
 import Box from '../box/Box'
 import styles from './GameGrid.module.css'
 import { gridContext } from '../../App'
-import { determineWinner } from '../../Util'
+import { determineWinner } from '../../Util.ts'
 
 type propTypes = {
   setWinner: Function
