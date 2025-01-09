@@ -5,7 +5,7 @@ import styles from './ScoreCard.module.css'
 import colors from '../../colors.json'
 
 type propTypes = {
-  winner: playerType | null
+  winner: playerType | null | "draw"
 }
 
 interface Score {
@@ -27,13 +27,21 @@ function ScoreCard({ winner }:propTypes) {
   useEffect(
     ()=>{
       if(winner){
-        setScore(
-          (s:Score) => {
-            winner === "X" ? s.x++ : s.o++
-            return {...s}
-          }
-        )
-        setMessage(winner + " wins!!!")
+        let message:string
+
+        if (winner !== "draw"){
+          setScore(
+            (s:Score) => {
+              winner === "X" ? s.x++ : s.o++
+              return {...s}
+            }
+          )
+          message = winner + " wins!!!"
+        }else {
+          message = "Draw!!!"
+        }
+
+        setMessage(message)
         setTimeout(()=>setMessage(""), 500)
       }
     },

@@ -25,7 +25,7 @@ function App() {
       ["", "", ""]
     ]
   )
-  const [winner, setWinner] = useState<playerType | null>(null)
+  const [winner, setWinner] = useState<playerType | null | "draw">(null)
 
   const resetGrid = () => setGrid(
     [

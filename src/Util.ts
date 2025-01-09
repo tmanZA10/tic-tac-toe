@@ -1,6 +1,6 @@
 import { playerType } from "./App";
 
-export function determineWinner(grid:string[][]):playerType | null{
+export function determineWinner(grid:string[][]):playerType | null | "draw"{
   
 
     for (let g of grid){
@@ -27,6 +27,18 @@ export function determineWinner(grid:string[][]):playerType | null{
     if(cords.every(v => v ==="")) return null
       
     if (cords.every(v => v === cords[0])) return cords[0]==="X" ? "X" :"O"
+
+    if (isDraw(grid)) return "draw"
     
     return null
   }
+
+
+function isDraw(grid:string[][]):boolean{
+  for (let row of grid){
+    for (let block of row){
+      if (block === "") return false
+    } 
+  }
+  return true;
+}
